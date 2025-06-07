@@ -18,16 +18,38 @@ const userId = route.params.id
 const user = ref({})
 
 onMounted(async () => {
-    console.log('HIJO APP', userId)
     const { data } = await axios.get(`https://jsonplaceholder.typicode.com/users/${userId}`)
     user.value = data
-    console.log('user', user.value)
 })
-
 </script>
-<style>
+<style lang="scss" scoped>
 .profile-card {
-    border: thin solid red;
-    margin: 1rem;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 400px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  .name {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+    font-weight: 700;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+  }
+
+  .info {
+    font-size: 1rem;
+    margin: 0.4rem 0;
+    color: #555;
+
+    strong {
+      color: #333;
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+  }
 }
 </style>
